@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Argument",
+    "definitions": {
+        "Argument": {
+            "allOf":[{"$ref":"resource.json#/definitions/Resource"}],
+            "properties": {
+                "premises": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "resourceReference.json#/definitions/ResourceReference"
+                    }
+                },
+                "conclusion": {
+                    "$ref": "resourceReference.json#/definitions/ResourceReference"
+                },
+                "argumentText": {
+                    "type": "string"
+                },
+                "lookupTerms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "resourceReference.json#/definitions/ResourceReference"
+                    }
+                }
+            }
+        }
+    }
+}
+

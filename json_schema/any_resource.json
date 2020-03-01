@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/AllResources",
+    "definitions": {
+        "AllResources": {
+            "anyOf": [
+                {"$ref": "term.json#/definitions/Term"},
+                {"$ref": "proposition.json#/definitions/Proposition"},
+                {"$ref": "argument.json#/definitions/Argument"},
+                {"$ref": "beliefset.json#/definitions/Beliefset"},
+                {"$ref": "article.json#/definitions/Article"},
+                {"$ref": "project.json#/definitions/Project"}
+            ]
+        }
+    }
+}
+

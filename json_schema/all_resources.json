@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/AllResources",
+    "definitions": {
+        "AllResources": {
+            "type": "object",
+            "properties": {
+                "term": {"$ref": "term.json#/definitions/Term"},
+                "proposition": {"$ref": "proposition.json#/definitions/Proposition"},
+                "argument": {"$ref": "argument.json#/definitions/Argument"},
+                "beliefset": {"$ref": "beliefset.json#/definitions/Beliefset"},
+                "article": {"$ref": "article.json#/definitions/Article"},
+                "project": {"$ref": "project.json#/definitions/Project"}
+            }
+        }
+    }
+}
+

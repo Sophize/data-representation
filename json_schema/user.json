@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/User",
+    "definitions": {
+        "User": {
+            "type": "object",
+            "properties": {
+                "handle": {
+                    "type": "string"
+                },
+                "userName": {
+                    "type": "string"
+                },
+                "userLink": {
+                    "type": "string"
+                },
+                "userEmail": {
+                    "type": "string"
+                },
+                "userPic": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
+

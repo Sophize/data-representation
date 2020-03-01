@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Resource",
+    "definitions": {
+        "Resource":{
+            "type": "object",
+            "properties": {
+                "permanentPtr": {
+                    "$ref": "resourceReference.json#/definitions/ResourceReference"
+                },
+                "notPermanentPtr": {
+                    "$ref": "resourceReference.json#/definitions/ResourceReference"
+                },
+                "contributor": {
+                    "$ref": "user.json#/definitions/User"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "indexable": {
+                    "type": "boolean"
+                },
+                "names": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "citations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "citation.json#/definitions/Citation"
+                    }
+                }
+            }
+        }
+    }
+}
+

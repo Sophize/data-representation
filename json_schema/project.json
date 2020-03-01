@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Project",
+    "definitions": {
+        "Project": {
+            "allOf":[{"$ref":"resource.json#/definitions/Resource"}],
+            "properties": {
+                "description": {
+                    "type": "string"
+                }                        
+            }
+        }
+    }
+}
+

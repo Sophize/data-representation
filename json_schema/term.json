@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Term",
+    "definitions": {
+        "Term": {
+            "allOf":[{"$ref":"resource.json#/definitions/Resource"}],
+            "properties": {
+                "phrase": {
+                    "type": "string"
+                },                        
+                "primitive": {
+                    "type": "boolean"
+                },
+                "language": {
+                    "$ref": "language.json#/definitions/Language"
+                },
+                "definition": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "lookupTerms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "resourceReference.json#/definitions/ResourceReference"
+                    }
+                }   
+            }
+        }
+    }
+}
+

@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Beliefset",
+    "definitions": {
+	"Beliefset": {
+            "allOf":[{"$ref":"resource.json#/definitions/Resource"}],
+            "properties": {
+                "unsupportedPropositionPtrs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "resourceReference.json#/definitions/ResourceReference"
+                    }
+                },
+                "subBeliefsetPtrs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "resourceReference.json#/definitions/ResourceReference"
+                    }
+                }
+            }
+        }
+    }
+}
+

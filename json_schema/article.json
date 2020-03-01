@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Article",
+    "definitions": {
+        "Article": {
+            "allOf":[{"$ref":"resource.json#/definitions/Resource"}],
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "beliefset": {
+                    "$ref": "resourceReference.json#/definitions/ResourceReference"
+                },
+                "abstractText": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "authors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "author.json#/definitions/Author"
+                    }
+                }
+            }
+        }
+    }
+}
+

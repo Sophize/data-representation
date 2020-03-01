@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/ResourceReference",
+    "definitions": {
+        "ResourceReference":{
+            "type": "string",
+            "pattern": "^#([^\\s\/]+\/)?[TPABRJ][._][^\\s\/]+$"
+        }
+    }
+}
+
