@@ -1,5 +1,8 @@
 import json
-from resources import Term, Proposition, Argument, Beliefset, Article, Project
+from pathlib import Path
+
+from resources import Argument, Article, Beliefset, Project, Proposition, Term
+
 
 def get_resource_code(resource):
     if isinstance(resource, Term):
@@ -26,8 +29,12 @@ def get_filename(assignable_id, resource):
     return get_resource_code(resource) + '_' + assignable_id + '.json'
 
 
-def write_json(assignable_id, resource):
-    with open(get_filename(assignable_id, resource), 'w') as fp:
+def write_json(directory, assignable_id, resource):
+    directory_path = Path(directory)
+    Path(directory_path).mkdir(parents=True, exist_ok=True)
+    filepath = Path.joinpath(
+        directory_path, get_filename(assignable_id, resource))
+    with open(filepath, 'w') as fp:
         json.dump(remove_nulls(resource.to_dict()), fp, indent=2)
 
 
@@ -47,7 +54,9 @@ def resource_from_dict(resource_code, json_data):
     return None
 
 
-def read_resource(filename):
-    json_data = json.loads(open(filename, "r").read())
+def read_resource(directory, filename):
+    filepath = Path.joinpath(Path(directory), filename)
+    json_data = json.loads(open(str(filepath), "r").read())
     resource = resource_from_dict(filename[0], json_data)
     return [filename[2: -5], resource]
+
