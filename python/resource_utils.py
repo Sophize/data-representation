@@ -1,44 +1,35 @@
+"""Utilities to help read and write Sophize resources as json data."""
+
 import json
 from pathlib import Path
 
 from resources import Argument, Article, Beliefset, Project, Proposition, Term
 
 
-def get_resource_code(resource):
-    if isinstance(resource, Term):
-        return 'T'
-    if isinstance(resource, Proposition):
-        return 'P'
-    if isinstance(resource, Argument):
-        return 'A'
-    if isinstance(resource, Beliefset):
-        return 'B'
-    if isinstance(resource, Article):
-        return 'R'
-    if isinstance(resource, Project):
-        return 'J'
+def get_filename(assignable_id, resource_type):
+    """The name of the file is depends on its type and its assignable_id. """
+    return _get_resource_code(resource_type) + '_' + assignable_id + '.json'
 
 
-def remove_nulls(d):
-    if not isinstance(d, dict):
-        return d
-    return {k: remove_nulls(v) for k, v in d.items() if v is not None}
-
-
-def get_filename(assignable_id, resource):
-    return get_resource_code(resource) + '_' + assignable_id + '.json'
+def remove_nulls(obj):
+    """Recursive function to remove nulls in a dict."""
+    if not isinstance(obj, dict):
+        return obj
+    return {k: remove_nulls(v) for k, v in obj.items() if v is not None}
 
 
 def write_json(directory, assignable_id, resource):
+    """Utility function to write a resource as a json file."""
     directory_path = Path(directory)
     Path(directory_path).mkdir(parents=True, exist_ok=True)
     filepath = Path.joinpath(
-        directory_path, get_filename(assignable_id, resource))
-    with open(filepath, 'w') as fp:
-        json.dump(remove_nulls(resource.to_dict()), fp, indent=2)
+        directory_path, get_filename(assignable_id, type(resource)))
+    with open(filepath, 'w') as fout:
+        json.dump(remove_nulls(resource.to_dict()), fout, indent=2)
 
 
 def resource_from_dict(resource_code, json_data):
+    """Utility function to parse resource from json data."""
     if resource_code == 'T':
         return Term.from_dict(json_data)
     if resource_code == 'P':
@@ -55,8 +46,25 @@ def resource_from_dict(resource_code, json_data):
 
 
 def read_resource(directory, filename):
+    """Utility function to read a resource from a json file."""
     filepath = Path.joinpath(Path(directory), filename)
-    json_data = json.loads(open(str(filepath), "r").read())
+    with open(str(filepath), "r") as file:
+        json_data = json.loads(file.read())
     resource = resource_from_dict(filename[0], json_data)
     return [filename[2: -5], resource]
 
+
+def _get_resource_code(resource_type):
+    if resource_type == Term:
+        return 'T'
+    if resource_type == Proposition:
+        return 'P'
+    if resource_type == Argument:
+        return 'A'
+    if resource_type == Beliefset:
+        return 'B'
+    if resource_type == Article:
+        return 'R'
+    if resource_type == Project:
+        return 'J'
+    return None
