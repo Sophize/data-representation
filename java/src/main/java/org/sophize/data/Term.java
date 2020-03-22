@@ -4,12 +4,18 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.*;
 
 public class Term extends Resource {
+    private String[] alternatePhrases;
     private String definition;
     private Language language;
     private String[] lookupTerms;
     private String phrase;
     private Boolean primitive;
     private String remarks;
+
+    @JsonProperty("alternatePhrases")
+    public String[] getAlternatePhrases() { return alternatePhrases; }
+    @JsonProperty("alternatePhrases")
+    public void setAlternatePhrases(String[] value) { this.alternatePhrases = value; }
 
     @JsonProperty("definition")
     public String getDefinition() { return definition; }

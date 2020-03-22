@@ -399,6 +399,7 @@ class Proposition:
 
 
 class Term:
+    alternate_phrases: Optional[List[str]]
     definition: Optional[str]
     language: Optional[Language]
     lookup_terms: Optional[List[str]]
@@ -413,7 +414,8 @@ class Term:
     permanent_ptr: Optional[str]
     tags: Optional[List[str]]
 
-    def __init__(self, definition: Optional[str], language: Optional[Language], lookup_terms: Optional[List[str]], phrase: Optional[str], primitive: Optional[bool], remarks: Optional[str], citations: Optional[List[Citation]], contributor: Optional[User], indexable: Optional[bool], names: Optional[List[str]], not_permanent_ptr: Optional[str], permanent_ptr: Optional[str], tags: Optional[List[str]]) -> None:
+    def __init__(self, alternate_phrases: Optional[List[str]], definition: Optional[str], language: Optional[Language], lookup_terms: Optional[List[str]], phrase: Optional[str], primitive: Optional[bool], remarks: Optional[str], citations: Optional[List[Citation]], contributor: Optional[User], indexable: Optional[bool], names: Optional[List[str]], not_permanent_ptr: Optional[str], permanent_ptr: Optional[str], tags: Optional[List[str]]) -> None:
+        self.alternate_phrases = alternate_phrases
         self.definition = definition
         self.language = language
         self.lookup_terms = lookup_terms
@@ -431,6 +433,7 @@ class Term:
     @staticmethod
     def from_dict(obj: Any) -> 'Term':
         assert isinstance(obj, dict)
+        alternate_phrases = from_union([lambda x: from_list(from_str, x), from_none], obj.get("alternatePhrases"))
         definition = from_union([from_str, from_none], obj.get("definition"))
         language = from_union([Language, from_none], obj.get("language"))
         lookup_terms = from_union([lambda x: from_list(from_str, x), from_none], obj.get("lookupTerms"))
@@ -444,10 +447,11 @@ class Term:
         not_permanent_ptr = from_union([from_str, from_none], obj.get("notPermanentPtr"))
         permanent_ptr = from_union([from_str, from_none], obj.get("permanentPtr"))
         tags = from_union([lambda x: from_list(from_str, x), from_none], obj.get("tags"))
-        return Term(definition, language, lookup_terms, phrase, primitive, remarks, citations, contributor, indexable, names, not_permanent_ptr, permanent_ptr, tags)
+        return Term(alternate_phrases, definition, language, lookup_terms, phrase, primitive, remarks, citations, contributor, indexable, names, not_permanent_ptr, permanent_ptr, tags)
 
     def to_dict(self) -> dict:
         result: dict = {}
+        result["alternatePhrases"] = from_union([lambda x: from_list(from_str, x), from_none], self.alternate_phrases)
         result["definition"] = from_union([from_str, from_none], self.definition)
         result["language"] = from_union([lambda x: to_enum(Language, x), from_none], self.language)
         result["lookupTerms"] = from_union([lambda x: from_list(from_str, x), from_none], self.lookup_terms)
