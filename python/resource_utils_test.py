@@ -34,5 +34,6 @@ class ResourceUtilsTestCase(unittest.TestCase):
 def _resource_to_string(resource):
     return json.dumps(resource_utils.remove_nulls(resource.to_dict()), indent=2)
 
+
 if __name__ == '__main__':
     unittest.main()

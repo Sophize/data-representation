@@ -5,21 +5,16 @@ import com.fasterxml.jackson.annotation.*;
 
 public class Term extends Resource {
     private String definition;
-    private String description;
     private Language language;
     private String[] lookupTerms;
     private String phrase;
     private Boolean primitive;
+    private String remarks;
 
     @JsonProperty("definition")
     public String getDefinition() { return definition; }
     @JsonProperty("definition")
     public void setDefinition(String value) { this.definition = value; }
-
-    @JsonProperty("description")
-    public String getDescription() { return description; }
-    @JsonProperty("description")
-    public void setDescription(String value) { this.description = value; }
 
     @JsonProperty("language")
     public Language getLanguage() { return language; }
@@ -40,4 +35,9 @@ public class Term extends Resource {
     public Boolean getPrimitive() { return primitive; }
     @JsonProperty("primitive")
     public void setPrimitive(Boolean value) { this.primitive = value; }
+
+    @JsonProperty("remarks")
+    public String getRemarks() { return remarks; }
+    @JsonProperty("remarks")
+    public void setRemarks(String value) { this.remarks = value; }
 }

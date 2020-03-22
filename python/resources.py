@@ -340,6 +340,7 @@ class Proposition:
     language: Optional[Language]
     lookup_terms: Optional[List[str]]
     negative_statement: Optional[str]
+    remarks: Optional[str]
     statement: Optional[str]
     citations: Optional[List[Citation]]
     contributor: Optional[User]
@@ -349,10 +350,11 @@ class Proposition:
     permanent_ptr: Optional[str]
     tags: Optional[List[str]]
 
-    def __init__(self, language: Optional[Language], lookup_terms: Optional[List[str]], negative_statement: Optional[str], statement: Optional[str], citations: Optional[List[Citation]], contributor: Optional[User], indexable: Optional[bool], names: Optional[List[str]], not_permanent_ptr: Optional[str], permanent_ptr: Optional[str], tags: Optional[List[str]]) -> None:
+    def __init__(self, language: Optional[Language], lookup_terms: Optional[List[str]], negative_statement: Optional[str], remarks: Optional[str], statement: Optional[str], citations: Optional[List[Citation]], contributor: Optional[User], indexable: Optional[bool], names: Optional[List[str]], not_permanent_ptr: Optional[str], permanent_ptr: Optional[str], tags: Optional[List[str]]) -> None:
         self.language = language
         self.lookup_terms = lookup_terms
         self.negative_statement = negative_statement
+        self.remarks = remarks
         self.statement = statement
         self.citations = citations
         self.contributor = contributor
@@ -368,6 +370,7 @@ class Proposition:
         language = from_union([Language, from_none], obj.get("language"))
         lookup_terms = from_union([lambda x: from_list(from_str, x), from_none], obj.get("lookupTerms"))
         negative_statement = from_union([from_str, from_none], obj.get("negativeStatement"))
+        remarks = from_union([from_str, from_none], obj.get("remarks"))
         statement = from_union([from_str, from_none], obj.get("statement"))
         citations = from_union([lambda x: from_list(Citation.from_dict, x), from_none], obj.get("citations"))
         contributor = from_union([User.from_dict, from_none], obj.get("contributor"))
@@ -376,13 +379,14 @@ class Proposition:
         not_permanent_ptr = from_union([from_str, from_none], obj.get("notPermanentPtr"))
         permanent_ptr = from_union([from_str, from_none], obj.get("permanentPtr"))
         tags = from_union([lambda x: from_list(from_str, x), from_none], obj.get("tags"))
-        return Proposition(language, lookup_terms, negative_statement, statement, citations, contributor, indexable, names, not_permanent_ptr, permanent_ptr, tags)
+        return Proposition(language, lookup_terms, negative_statement, remarks, statement, citations, contributor, indexable, names, not_permanent_ptr, permanent_ptr, tags)
 
     def to_dict(self) -> dict:
         result: dict = {}
         result["language"] = from_union([lambda x: to_enum(Language, x), from_none], self.language)
         result["lookupTerms"] = from_union([lambda x: from_list(from_str, x), from_none], self.lookup_terms)
         result["negativeStatement"] = from_union([from_str, from_none], self.negative_statement)
+        result["remarks"] = from_union([from_str, from_none], self.remarks)
         result["statement"] = from_union([from_str, from_none], self.statement)
         result["citations"] = from_union([lambda x: from_list(lambda x: to_class(Citation, x), x), from_none], self.citations)
         result["contributor"] = from_union([lambda x: to_class(User, x), from_none], self.contributor)
@@ -396,11 +400,11 @@ class Proposition:
 
 class Term:
     definition: Optional[str]
-    description: Optional[str]
     language: Optional[Language]
     lookup_terms: Optional[List[str]]
     phrase: Optional[str]
     primitive: Optional[bool]
+    remarks: Optional[str]
     citations: Optional[List[Citation]]
     contributor: Optional[User]
     indexable: Optional[bool]
@@ -409,13 +413,13 @@ class Term:
     permanent_ptr: Optional[str]
     tags: Optional[List[str]]
 
-    def __init__(self, definition: Optional[str], description: Optional[str], language: Optional[Language], lookup_terms: Optional[List[str]], phrase: Optional[str], primitive: Optional[bool], citations: Optional[List[Citation]], contributor: Optional[User], indexable: Optional[bool], names: Optional[List[str]], not_permanent_ptr: Optional[str], permanent_ptr: Optional[str], tags: Optional[List[str]]) -> None:
+    def __init__(self, definition: Optional[str], language: Optional[Language], lookup_terms: Optional[List[str]], phrase: Optional[str], primitive: Optional[bool], remarks: Optional[str], citations: Optional[List[Citation]], contributor: Optional[User], indexable: Optional[bool], names: Optional[List[str]], not_permanent_ptr: Optional[str], permanent_ptr: Optional[str], tags: Optional[List[str]]) -> None:
         self.definition = definition
-        self.description = description
         self.language = language
         self.lookup_terms = lookup_terms
         self.phrase = phrase
         self.primitive = primitive
+        self.remarks = remarks
         self.citations = citations
         self.contributor = contributor
         self.indexable = indexable
@@ -428,11 +432,11 @@ class Term:
     def from_dict(obj: Any) -> 'Term':
         assert isinstance(obj, dict)
         definition = from_union([from_str, from_none], obj.get("definition"))
-        description = from_union([from_str, from_none], obj.get("description"))
         language = from_union([Language, from_none], obj.get("language"))
         lookup_terms = from_union([lambda x: from_list(from_str, x), from_none], obj.get("lookupTerms"))
         phrase = from_union([from_str, from_none], obj.get("phrase"))
         primitive = from_union([from_bool, from_none], obj.get("primitive"))
+        remarks = from_union([from_str, from_none], obj.get("remarks"))
         citations = from_union([lambda x: from_list(Citation.from_dict, x), from_none], obj.get("citations"))
         contributor = from_union([User.from_dict, from_none], obj.get("contributor"))
         indexable = from_union([from_bool, from_none], obj.get("indexable"))
@@ -440,16 +444,16 @@ class Term:
         not_permanent_ptr = from_union([from_str, from_none], obj.get("notPermanentPtr"))
         permanent_ptr = from_union([from_str, from_none], obj.get("permanentPtr"))
         tags = from_union([lambda x: from_list(from_str, x), from_none], obj.get("tags"))
-        return Term(definition, description, language, lookup_terms, phrase, primitive, citations, contributor, indexable, names, not_permanent_ptr, permanent_ptr, tags)
+        return Term(definition, language, lookup_terms, phrase, primitive, remarks, citations, contributor, indexable, names, not_permanent_ptr, permanent_ptr, tags)
 
     def to_dict(self) -> dict:
         result: dict = {}
         result["definition"] = from_union([from_str, from_none], self.definition)
-        result["description"] = from_union([from_str, from_none], self.description)
         result["language"] = from_union([lambda x: to_enum(Language, x), from_none], self.language)
         result["lookupTerms"] = from_union([lambda x: from_list(from_str, x), from_none], self.lookup_terms)
         result["phrase"] = from_union([from_str, from_none], self.phrase)
         result["primitive"] = from_union([from_bool, from_none], self.primitive)
+        result["remarks"] = from_union([from_str, from_none], self.remarks)
         result["citations"] = from_union([lambda x: from_list(lambda x: to_class(Citation, x), x), from_none], self.citations)
         result["contributor"] = from_union([lambda x: to_class(User, x), from_none], self.contributor)
         result["indexable"] = from_union([from_bool, from_none], self.indexable)

@@ -17,7 +17,7 @@
                 "definition": {
                     "type": "string"
                 },
-                "description": {
+                "remarks": {
                     "type": "string"
                 },
                 "lookupTerms": {

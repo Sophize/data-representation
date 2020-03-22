@@ -7,6 +7,7 @@ public class Proposition extends Resource {
     private Language language;
     private String[] lookupTerms;
     private String negativeStatement;
+    private String remarks;
     private String statement;
 
     @JsonProperty("language")
@@ -23,6 +24,11 @@ public class Proposition extends Resource {
     public String getNegativeStatement() { return negativeStatement; }
     @JsonProperty("negativeStatement")
     public void setNegativeStatement(String value) { this.negativeStatement = value; }
+
+    @JsonProperty("remarks")
+    public String getRemarks() { return remarks; }
+    @JsonProperty("remarks")
+    public void setRemarks(String value) { this.remarks = value; }
 
     @JsonProperty("statement")
     public String getStatement() { return statement; }
