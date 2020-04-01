@@ -287,6 +287,7 @@ class Beliefset:
 
 
 class Project:
+    abstract_text: Optional[str]
     description: Optional[str]
     citations: Optional[List[Citation]]
     contributor: Optional[User]
@@ -296,7 +297,8 @@ class Project:
     permanent_ptr: Optional[str]
     tags: Optional[List[str]]
 
-    def __init__(self, description: Optional[str], citations: Optional[List[Citation]], contributor: Optional[User], indexable: Optional[bool], names: Optional[List[str]], not_permanent_ptr: Optional[str], permanent_ptr: Optional[str], tags: Optional[List[str]]) -> None:
+    def __init__(self, abstract_text: Optional[str], description: Optional[str], citations: Optional[List[Citation]], contributor: Optional[User], indexable: Optional[bool], names: Optional[List[str]], not_permanent_ptr: Optional[str], permanent_ptr: Optional[str], tags: Optional[List[str]]) -> None:
+        self.abstract_text = abstract_text
         self.description = description
         self.citations = citations
         self.contributor = contributor
@@ -309,6 +311,7 @@ class Project:
     @staticmethod
     def from_dict(obj: Any) -> 'Project':
         assert isinstance(obj, dict)
+        abstract_text = from_union([from_str, from_none], obj.get("abstractText"))
         description = from_union([from_str, from_none], obj.get("description"))
         citations = from_union([lambda x: from_list(Citation.from_dict, x), from_none], obj.get("citations"))
         contributor = from_union([User.from_dict, from_none], obj.get("contributor"))
@@ -317,10 +320,11 @@ class Project:
         not_permanent_ptr = from_union([from_str, from_none], obj.get("notPermanentPtr"))
         permanent_ptr = from_union([from_str, from_none], obj.get("permanentPtr"))
         tags = from_union([lambda x: from_list(from_str, x), from_none], obj.get("tags"))
-        return Project(description, citations, contributor, indexable, names, not_permanent_ptr, permanent_ptr, tags)
+        return Project(abstract_text, description, citations, contributor, indexable, names, not_permanent_ptr, permanent_ptr, tags)
 
     def to_dict(self) -> dict:
         result: dict = {}
+        result["abstractText"] = from_union([from_str, from_none], self.abstract_text)
         result["description"] = from_union([from_str, from_none], self.description)
         result["citations"] = from_union([lambda x: from_list(lambda x: to_class(Citation, x), x), from_none], self.citations)
         result["contributor"] = from_union([lambda x: to_class(User, x), from_none], self.contributor)

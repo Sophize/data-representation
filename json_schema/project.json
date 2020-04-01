@@ -5,9 +5,12 @@
         "Project": {
             "allOf":[{"$ref":"resource.json#/definitions/Resource"}],
             "properties": {
+                "abstractText": {
+                    "type": "string"
+                },
                 "description": {
                     "type": "string"
-                }                        
+                }  
             }
         }
     }
