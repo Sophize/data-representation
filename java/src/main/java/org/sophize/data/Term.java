@@ -8,6 +8,7 @@ public class Term extends Resource {
     private String definition;
     private Language language;
     private String[] lookupTerms;
+    private MetaLanguage metaLanguage;
     private String phrase;
     private Boolean primitive;
     private String remarks;
@@ -31,6 +32,11 @@ public class Term extends Resource {
     public String[] getLookupTerms() { return lookupTerms; }
     @JsonProperty("lookupTerms")
     public void setLookupTerms(String[] value) { this.lookupTerms = value; }
+
+    @JsonProperty("metaLanguage")
+    public MetaLanguage getMetaLanguage() { return metaLanguage; }
+    @JsonProperty("metaLanguage")
+    public void setMetaLanguage(MetaLanguage value) { this.metaLanguage = value; }
 
     @JsonProperty("phrase")
     public String getPhrase() { return phrase; }

@@ -11,6 +11,9 @@
                 "negativeStatement": {
                     "type": "string"
                 },
+                "metaLanguage": {
+                    "$ref": "metaLanguage.json#/definitions/MetaLanguage"
+                },
                 "language": {
                     "$ref": "language.json#/definitions/Language"
                 },

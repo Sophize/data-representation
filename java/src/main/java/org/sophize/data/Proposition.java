@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.*;
 public class Proposition extends Resource {
     private Language language;
     private String[] lookupTerms;
+    private MetaLanguage metaLanguage;
     private String negativeStatement;
     private String remarks;
     private String statement;
@@ -19,6 +20,11 @@ public class Proposition extends Resource {
     public String[] getLookupTerms() { return lookupTerms; }
     @JsonProperty("lookupTerms")
     public void setLookupTerms(String[] value) { this.lookupTerms = value; }
+
+    @JsonProperty("metaLanguage")
+    public MetaLanguage getMetaLanguage() { return metaLanguage; }
+    @JsonProperty("metaLanguage")
+    public void setMetaLanguage(MetaLanguage value) { this.metaLanguage = value; }
 
     @JsonProperty("negativeStatement")
     public String getNegativeStatement() { return negativeStatement; }

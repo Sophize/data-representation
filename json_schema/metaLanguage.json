@@ -1,10 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/Language",
+    "$ref": "#/definitions/MetaLanguage",
     "definitions": {
-        "Language": {
+        "MetaLanguage": {
             "type": "string",
-	    "enum": ["INFORMAL", "METAMATH_SET_MM"]
+	    "enum": ["INFORMAL", "METAMATH"]
         }
     }
 }
