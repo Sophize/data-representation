@@ -9,7 +9,8 @@
                 {"$ref": "argument.json#/definitions/Argument"},
                 {"$ref": "beliefset.json#/definitions/Beliefset"},
                 {"$ref": "article.json#/definitions/Article"},
-                {"$ref": "project.json#/definitions/Project"}
+                {"$ref": "project.json#/definitions/Project"},
+                {"$ref": "machine.json#/definitions/Machine"}
             ]
         }
     }

@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/MachineRequest",
+    "definitions": {
+        "MachineRequest": {
+            "type": "object",
+            "properties": {
+                "machinePtr" : {
+                    "$ref": "resourceReference.json#/definitions/ResourceReference"
+                },
+                "proposition": {
+                    "$ref": "proposition.json#/definitions/Proposition"
+                },
+                "tryCompletingProposition": {
+                    "type": "boolean"
+                },
+                "fetchProof": {
+                    "type": "boolean"
+                },
+                "fetchUpdatedProposition": {
+                    "type": "boolean"
+                },
+            },
+            "additionalProperties": false
+        }
+    }
+}
+

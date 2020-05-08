@@ -10,7 +10,10 @@
                 "argument": {"$ref": "argument.json#/definitions/Argument"},
                 "beliefset": {"$ref": "beliefset.json#/definitions/Beliefset"},
                 "article": {"$ref": "article.json#/definitions/Article"},
-                "project": {"$ref": "project.json#/definitions/Project"}
+                "project": {"$ref": "project.json#/definitions/Project"},
+                "machine": {"$ref": "machine.json#/definitions/Machine"},
+                "machineRequest": {"$ref": "machineRequest.json#/definitions/MachineRequest"},
+                "machineResponse": {"$ref": "machineResponse.json#/definitions/MachineResponse"}
             }
         }
     }

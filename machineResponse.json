@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/MachineResponse",
+    "definitions": {
+        "MachineResponse": {
+            "type": "object",
+            "properties": {
+                "truthValue": {
+                    "$ref": "truthValue.json#/definitions/TruthValue"
+                },
+                "resolvedProposition": {
+                    "$ref": "proposition.json#/definitions/Proposition"
+                },
+                "proofPropositions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "proposition.json#/definitions/Proposition"
+                    }
+                },
+                "proofArguments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "argument.json#/definitions/Argument"
+                    }                
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
+

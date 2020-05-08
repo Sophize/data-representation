@@ -11,8 +11,17 @@
                         "$ref": "resourceReference.json#/definitions/ResourceReference"
                     }
                 },
+                "premiseMachine" : {
+                    "$ref": "resourceReference.json#/definitions/ResourceReference"
+                },
                 "conclusion": {
                     "$ref": "resourceReference.json#/definitions/ResourceReference"
+                },
+                "metaLanguage": {
+                    "$ref": "metaLanguage.json#/definitions/MetaLanguage"
+                },
+                "language": {
+                    "$ref": "language.json#/definitions/Language"
                 },
                 "argumentText": {
                     "type": "string"

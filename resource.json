@@ -5,6 +5,9 @@
         "Resource":{
             "type": "object",
             "properties": {
+                "assignablePtr": {
+                    "$ref": "resourceReference.json#/definitions/ResourceReference"
+                },
                 "permanentPtr": {
                     "$ref": "resourceReference.json#/definitions/ResourceReference"
                 },

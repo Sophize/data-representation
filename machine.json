@@ -1,23 +1,23 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/Beliefset",
+    "$ref": "#/definitions/Machine",
     "definitions": {
-	"Beliefset": {
+	"Machine": {
             "allOf":[{"$ref":"resource.json#/definitions/Resource"}],
             "properties": {
-                "unsupportedPropositionPtrs": {
+                "serverName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "premisePropositions": {
                     "type": "array",
                     "items": {
                         "$ref": "resourceReference.json#/definitions/ResourceReference"
                     }
                 },
-                "unsupportedMachinePtrs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "resourceReference.json#/definitions/ResourceReference"
-                    }
-                },
-                "subBeliefsetPtrs": {
+                "premiseMachines": {
                     "type": "array",
                     "items": {
                         "$ref": "resourceReference.json#/definitions/ResourceReference"
