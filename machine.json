@@ -11,6 +11,9 @@
                 "description": {
                     "type": "string"
                 },
+                "defaultMaterializeDataset": {
+                    "type": "string"
+                },
                 "premisePropositions": {
                     "type": "array",
                     "items": {

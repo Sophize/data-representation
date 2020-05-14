@@ -11,6 +11,9 @@
                 "permanentPtr": {
                     "$ref": "resourceReference.json#/definitions/ResourceReference"
                 },
+                "ephemeralId": {
+                    "type": "string"
+                },
                 "notPermanentPtr": {
                     "$ref": "resourceReference.json#/definitions/ResourceReference"
                 },
