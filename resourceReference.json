@@ -4,7 +4,7 @@
     "definitions": {
         "ResourceReference":{
             "type": "string",
-            "pattern": "^#([^\\s\/]+\/)?[TPABRJ][._][^\\s\/]+$"
+            "pattern": "^#([^\\s\/]+\/)?[TPABRJM][._~][^\\s\/]+$"
         }
     }
 }

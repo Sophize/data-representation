@@ -5,11 +5,17 @@
         "MachineResponse": {
             "type": "object",
             "properties": {
+                "message": {
+                    "type": "string"
+                },
                 "truthValue": {
                     "$ref": "truthValue.json#/definitions/TruthValue"
                 },
                 "resolvedProposition": {
                     "$ref": "proposition.json#/definitions/Proposition"
+                },
+                "existingPropositionPtr": {
+                    "$ref": "resourceReference.json#/definitions/ResourceReference"
                 },
                 "proofPropositions": {
                     "type": "array",
