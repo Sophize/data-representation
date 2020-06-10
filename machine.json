@@ -25,6 +25,15 @@
                     "items": {
                         "$ref": "resourceReference.json#/definitions/ResourceReference"
                     }
+                },
+                "defaultLanguage": {
+                    "$ref": "language.json#/definitions/Language"
+                },
+                "defaultStrictStatement": {
+                    "type": "string"
+                },
+                "defaultLenientStatement": {
+                    "type": "string"
                 }
             }
         }
