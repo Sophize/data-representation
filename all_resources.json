@@ -12,6 +12,7 @@
                 "article": {"$ref": "article.json#/definitions/Article"},
                 "project": {"$ref": "project.json#/definitions/Project"},
                 "machine": {"$ref": "machine.json#/definitions/Machine"},
+                "page": {"$ref": "page.json#/definitions/Page"},
                 "proofRequest": {"$ref": "proofRequest.json#/definitions/ProofRequest"},
                 "proofResponse": {"$ref": "proofResponse.json#/definitions/ProofResponse"}
             }
