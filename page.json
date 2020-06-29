@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Page",
+    "definitions": {
+        "Page":{
+            "type": "object",
+            "properties": {
+                "pageId": {
+                    "type": "string"
+                },
+                "parentPageId": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "sortHint": {
+                    "type": "number"
+                },
+                "contributor": {
+                    "$ref": "user.json#/definitions/User"
+                },
+                "citations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "citation.json#/definitions/Citation"
+                    }
+                }
+            }
+        }
+    }
+}
+

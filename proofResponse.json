@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/MachineResponse",
+    "$ref": "#/definitions/ProofResponse",
     "definitions": {
-        "MachineResponse": {
+        "ProofResponse": {
             "type": "object",
             "properties": {
                 "message": {

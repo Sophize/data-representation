@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/MachineRequest",
+    "$ref": "#/definitions/ProofRequest",
     "definitions": {
-        "MachineRequest": {
+        "ProofRequest": {
             "type": "object",
             "properties": {
                 "machinePtr" : {
@@ -11,7 +11,7 @@
                 "proposition": {
                     "$ref": "proposition.json#/definitions/Proposition"
                 },
-                "tryCompletingProposition": {
+                "parseLenient": {
                     "type": "boolean"
                 },
                 "fetchProof": {

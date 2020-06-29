@@ -12,8 +12,8 @@
                 "article": {"$ref": "article.json#/definitions/Article"},
                 "project": {"$ref": "project.json#/definitions/Project"},
                 "machine": {"$ref": "machine.json#/definitions/Machine"},
-                "machineRequest": {"$ref": "machineRequest.json#/definitions/MachineRequest"},
-                "machineResponse": {"$ref": "machineResponse.json#/definitions/MachineResponse"}
+                "proofRequest": {"$ref": "proofRequest.json#/definitions/ProofRequest"},
+                "proofResponse": {"$ref": "proofResponse.json#/definitions/ProofResponse"}
             }
         }
     }
