@@ -5,6 +5,9 @@
 	"Beliefset": {
             "allOf":[{"$ref":"resource.json#/definitions/Resource"}],
             "properties": {
+                "description": {
+                    "type": "string"
+                },
                 "unsupportedPropositionPtrs": {
                     "type": "array",
                     "items": {
