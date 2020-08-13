@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/ValidityUpdate",
+    "definitions": {
+        "ValidityUpdate": {
+            "type": "object",
+            "properties": {
+                "justification": {
+                    "type": "string"
+                },
+                "validityStatus": {
+                    "$ref": "validityStatus.json#/definitions/ValidityStatus"
+                },
+                "updater": {
+                    "$ref": "user.json#/definitions/User"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
+

@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/License",
+    "definitions": {
+        "License": {
+            "type": "object",
+            "properties": {
+                "licenseType": {
+                    "$ref": "licenseType.json#/definitions/LicenseType"
+                },
+                "linkToLicense": {
+                    "type": "string"
+                },
+                "licenseText": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
+

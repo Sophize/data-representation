@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/LicenseType",
+    "definitions": {
+        "LicenseType": {
+            "type": "string",
+            "enum": [
+                "UNKNOWN",
+                "CC0",
+                "CC_BY",
+                "CC_BY_SA",
+                "CC_BY_ND",
+                "CC_BY_NC",
+                "CC_BY_NC_SA",
+                "CC_BY_NC_ND",
+                "MIT",
+                "GNU_GPL"
+            ]
+        }
+    }
+}

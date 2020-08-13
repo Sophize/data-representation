@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Dataset",
+    "definitions": {
+        "Dataset": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "iconUrl": {
+                    "type": "string"
+                },
+                "bannerUrl": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "openAcls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "accessType.json#/definitions/AccessType"
+                    }
+                },
+                "licenses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "license.json#/definitions/License"
+                    }
+                },
+                "subscribedDatasets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "customHomeArticle": {
+                    "type": "boolean"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
+

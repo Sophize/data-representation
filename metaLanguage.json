@@ -4,7 +4,7 @@
     "definitions": {
         "MetaLanguage": {
             "type": "string",
-	    "enum": ["INFORMAL", "METAMATH"]
+	        "enum": ["INFORMAL", "METAMATH"]
         }
     }
 }

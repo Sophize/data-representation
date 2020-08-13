@@ -19,7 +19,7 @@
                 },
                 "fetchUpdatedProposition": {
                     "type": "boolean"
-                },
+                }
             },
             "additionalProperties": false
         }

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/ValidityStatus",
+  "definitions": {
+      "ValidityStatus": {
+          "type": "string",
+          "enum": [
+              "UNKNOWN",
+
+              "UNAPPROVED",
+              "REQUESTED_APPROVAL",
+
+              "MANUAL_DENIED",
+              "MACHINE_DENIED",
+
+              "AUTO_APPROVED",
+              "MANUAL_APPROVED",
+              "MACHINE_APPROVED"
+          ]
+      }
+  }
+}

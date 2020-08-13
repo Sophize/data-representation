@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/AccessType",
+    "definitions": {
+        "AccessType": {
+            "type": "string",
+            "enum": [
+                "UNKNOWN",
+                "READ_DATA",
+                "COMMENT",
+                "SUGGEST_DATA_UPDATES",
+                "MODERATE_COMMENTS",
+                "ADD_NEW_DATA",
+                "EDIT_DELETE_DATA",
+                "SUGGEST_USER_UPDATES",
+                "UPDATE_USER",
+                "APPROVE_DATA_UPDATES",
+                "APPROVE_USER_UPDATES",
+                "APPROVE_VALIDITY",
+                "DATASET_PROPERTY_UPDATE",
+                "GLOBAL_APPROVE_VALIDITY"
+            ]
+        }
+    }
+}
